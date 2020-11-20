@@ -10,7 +10,8 @@ pipeline {
     stage('deploy') {
       steps {
         sh '''pwd
-sh ./deploy.sh'''
+sh ./deploy.sh
+nohup java -jar ./ums/target/ums.jar > /dev/null &'''
       }
     }
 
