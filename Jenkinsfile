@@ -10,6 +10,7 @@ pipeline {
     stage('deploy') {
       steps {
         sh '''echo "kill ums.jar server"
+
 ps -ef | grep ums.jar | grep -v grep | awk \'{print $2}\' | xargs kill -9
 
 nohup java -jar ./ums/target/ums.jar > /dev/null &
