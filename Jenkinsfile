@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'mvn clean package -pl ums -am'
+        sh 'mvn clean package -pl gateway -am'
       }
     }
 
