@@ -12,7 +12,7 @@ docker build -t ums:1.0.0 .'''
     stage('deploy') {
       steps {
         sh '''pwd
-docker stop ums
+docker stop ums || true
 echo "container stoped"
 docker run --rm -d --name ums -p 8200:8200 -v ~/logback-spring.xml:/root/logback-spring.xml ums:1.0.0 || true
 echo "container starting"'''
