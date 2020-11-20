@@ -21,7 +21,7 @@ echo "container starting"'''
 
     stage('clear none images') {
       steps {
-        sh 'docker rmi $(docker images | grep "none" | awk \'{print $3}\')'
+        sh 'docker rmi $(docker images | grep "none" | awk \'{print $3}\') || true'
       }
     }
 
