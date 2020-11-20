@@ -9,7 +9,8 @@ pipeline {
 
     stage('deploy') {
       steps {
-        sh 'sh ./deploy.sh'
+        sh '''pwd
+sh ./deploy.sh'''
       }
     }
 
