@@ -5,16 +5,16 @@ pipeline {
       steps {
         sh '''mvn clean package -pl auth-server -am
 cd auth-server
-docker build -t auth-server:1.0.0 .'''
+docker build -t auth:1.0.0 .'''
       }
     }
 
     stage('deploy') {
       steps {
         sh '''pwd
-docker stop auth-server || true
+docker stop auth|| true
 echo "container stoped"
-docker run --rm -d --name auth-server -p 8400:8400 -v ~/logback-spring.xml:/root/logback-spring.xml auth-server:1.0.0
+docker run --rm -d --name auth -p 8400:8400 -v ~/logback-spring.xml:/root/logback-spring.xml auth:1.0.0
 echo "container starting"'''
       }
     }
