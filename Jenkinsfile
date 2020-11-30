@@ -14,7 +14,7 @@ docker build -t auth-server:1.0.0 .'''
         sh '''pwd
 docker stop auth-server || true
 echo "container stoped"
-docker run --rm -d --name ums -p 8400:8400 -v ~/logback-spring.xml:/root/logback-spring.xml auth-server:1.0.0
+docker run --rm -d --name auth-server -p 8400:8400 -v ~/logback-spring.xml:/root/logback-spring.xml auth-server:1.0.0
 echo "container starting"'''
       }
     }
